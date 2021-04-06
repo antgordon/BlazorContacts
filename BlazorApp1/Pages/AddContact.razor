@@ -1,0 +1,103 @@
+﻿@page  "/addcontacts"
+
+@using BlazorApp1.Data
+@using Microsoft.EntityFrameworkCore
+@inject ContactService ConService
+@inject NavigationManager NavigationManager
+@inject IDbContextFactory<ContactDbContext> DbFactory
+
+<h3>Add Contact</h3>
+
+<EditForm EditContext="@editContext" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <label>
+            FirstName:
+            <InputText @bind-Value="Contact.FirstName" />
+        </label>
+    </p>
+    <p>
+        <label>
+            LastName:
+            <InputText @bind-Value="Contact.LastName" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Birthday:
+            <InputDate @bind-Value="Contact.BirthDate" />
+
+        </label>
+    </p>
+    <p>
+        <label>
+            Phone Number:
+            <InputText @bind-Value="Contact.PhoneNumber" />
+        </label>
+    </p>
+
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="button" value="Cancel" @onclick="OnCancel">Cancel</button>
+</EditForm>
+
+
+
+
+
+@code {
+
+
+
+    private ContactForm Contact = new ContactForm();
+    private EditContext editContext;
+
+
+
+    protected override void OnInitialized()
+    {
+
+        editContext = new EditContext(Contact);
+
+
+    }
+
+
+    private void HandleValidSubmit()
+    {
+
+
+        var isValid = editContext.Validate();
+
+        if (isValid)
+        {
+            ContactDbContext context = DbFactory.CreateDbContext();
+            //Contact con = context.Contacts.Single(c => c.Id.Equals(ID));
+            Contact con = new Contact();
+
+            con.FirstName = Contact.FirstName;
+            con.LastName = Contact.LastName;
+            con.PhoneNumber = Contact.PhoneNumber;
+            con.BirthDate = Contact.BirthDate;
+
+            con.Id = Guid.NewGuid();
+
+            context.Add(con);
+            context.SaveChanges();
+            //ConService.AddContact(con);
+            NavigationManager.NavigateTo("contacts");
+        }
+        else
+        {
+            //Do nothing for now
+        }
+
+    }
+
+    private void OnCancel()
+    {
+        NavigationManager.NavigateTo("contacts");
+    }
+}
