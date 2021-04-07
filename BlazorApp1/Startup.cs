@@ -29,7 +29,7 @@ namespace BlazorContacts
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-
+             
             services.AddDbContextFactory<ContactDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ContactContext")));
             services.AddDbContext<ContactDbContext>(options =>
@@ -43,6 +43,13 @@ namespace BlazorContacts
         {
             if (env.IsDevelopment())
             {
+                using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+                {
+                    var context = serviceScope.ServiceProvider.GetRequiredService<ContactDbContext>();
+                    context.Database.EnsureCreated();
+
+
+                }
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -51,6 +58,8 @@ namespace BlazorContacts
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+           
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
