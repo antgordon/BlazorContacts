@@ -29,8 +29,6 @@ namespace BlazorContacts
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
-
 
             services.AddDbContextFactory<ContactDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ContactContext")));
