@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace BlazorApp1.Migrations
+namespace BlazorContacts.Migrations
 {
     public partial class InitialCreate : Migration
     {

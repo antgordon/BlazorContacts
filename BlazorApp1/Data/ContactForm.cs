@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace BlazorApp1.Data
+namespace BlazorContacts.Data
 {
     public class ContactForm
     {

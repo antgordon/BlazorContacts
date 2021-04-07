@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazorApp1
+namespace BlazorContacts
 {
     public class Program
     {

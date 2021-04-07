@@ -6,7 +6,7 @@ using System.ComponentModel;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace BlazorApp1.Data
+namespace BlazorContacts.Data
 {
     public class ContactDbContext : DbContext { 
 
