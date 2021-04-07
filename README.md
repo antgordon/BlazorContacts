@@ -5,9 +5,9 @@ A contact management software writen in Blazor that tracks name, birthdays, and 
 
 ### Prerequisites
 
-[Visual Stuido 2019] (https://visualstudio.microsoft.com/downloads/)  
-[Asp .Net Core Blazor Server] (https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)  
-[EntityFrameWorkCore 5.0] (https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/)  
+[Visual Stuido 2019](https://visualstudio.microsoft.com/downloads/)  
+[Asp .Net Core Blazor Server](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)  
+[EntityFrameWorkCore 5.0](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/)  
 
 Entity Framework and the necessary extension are avaliable through the dotnet CLI   
 ```
