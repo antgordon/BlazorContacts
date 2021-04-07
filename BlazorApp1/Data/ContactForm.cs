@@ -6,6 +6,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlazorContacts.Data
 {
+
+    /// <summary>
+    ///A mock of the Contact data model used for form submission
+    /// </summary>
     public class ContactForm
     {
 

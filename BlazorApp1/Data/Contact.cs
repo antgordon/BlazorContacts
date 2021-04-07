@@ -6,6 +6,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlazorContacts.Data
 {
+
+    /// <summary>
+    /// The data model for the contacts in the database
+    /// </summary>
     public class Contact
     {
         [Key]
