@@ -103,8 +103,9 @@
             con.LastName = Contact.LastName;
             con.PhoneNumber = Contact.PhoneNumber;
             con.BirthDate = Contact.BirthDate;
-            NavigationManager.NavigateTo("contacts");
             context.SaveChanges();
+            NavigationManager.NavigateTo("contacts");
+
         }
         else
         {
@@ -119,6 +120,7 @@
         ContactDbContext context = DbFactory.CreateDbContext();
         Contact con = context.Contacts.Single(c => c.Id.Equals(ID));// Contact con = ConService.GetContact(ID);
         context.Remove(con);// ConService.RemoveContact(con);
+        context.SaveChanges();
         NavigationManager.NavigateTo("contacts");
     }
 
