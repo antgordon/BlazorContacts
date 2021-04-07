@@ -2,11 +2,10 @@
 
 @using BlazorApp1.Data
 @using Microsoft.EntityFrameworkCore
-@inject ContactService ConService
 @inject NavigationManager NavigationManager
 @inject IDbContextFactory<ContactDbContext> DbFactory
 
-<h3>ViewContacts</h3>
+<h1>ViewContacts</h1>
 <button class="btn btn-primary" @onclick="GoToAddContact">Add Contact</button>
 <table class="table">
     <tr>

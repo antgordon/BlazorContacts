@@ -30,18 +30,13 @@ namespace BlazorApp1
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+
+
             services.AddDbContextFactory<ContactDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ContactContext")));
             services.AddDbContext<ContactDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ContactContext")));
     
-            services.AddSingleton<ContactService>();
-
-
-
-
-
-
         }
 
 

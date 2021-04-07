@@ -2,11 +2,10 @@
 
 @using BlazorApp1.Data
 @using Microsoft.EntityFrameworkCore
-@inject ContactService ConService
 @inject NavigationManager NavigationManager
 @inject IDbContextFactory<ContactDbContext> DbFactory
 
-<h3>Edit Contact</h3>
+<h1>Edit Contact</h1>
 
 <EditForm EditContext="@editContext" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
